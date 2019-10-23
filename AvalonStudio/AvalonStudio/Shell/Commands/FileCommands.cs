@@ -13,10 +13,11 @@ namespace AvalonStudio.Shell.Commands
     internal class FileCommands
     {
         [ExportCommandDefinition("File.Save")]
-        [DefaultKeyGesture("CTRL+S")]
+        [DefaultKeyGesture("CTRL + S")]
         public CommandDefinition SaveCommand { get; }
 
         [ExportCommandDefinition("File.SaveAll")]
+        [DefaultKeyGesture("CTRL + SHIFT + S")]
         public CommandDefinition SaveAllCommand { get; }
 
         [ExportCommandDefinition("File.Exit")]
@@ -42,7 +43,7 @@ namespace AvalonStudio.Shell.Commands
                 commandIconService.GetCompletionKindImage("SaveAll"),
                 ReactiveCommand.Create(SaveAll));
 
-            ExitCommand = new CommandDefinition("Quit AvalonStudio", null, ReactiveCommand.Create(Exit));
+            ExitCommand = new CommandDefinition("Exit", null, ReactiveCommand.Create(Exit));
         }
 
         private void Save() => _studio.Save();
